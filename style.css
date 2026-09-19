@@ -124,7 +124,8 @@ input:focus-visible, select:focus-visible, .chart-month:focus-visible { outline:
   padding: 17px;
   background: #1d2838cc;
 }
-.campaign-chart { position: relative; min-width: 0; min-height: 0; }
+.campaign-chart { position: relative; min-width: 0; min-height: 280px; }
+.campaign-chart__plot { position: absolute; inset: 0; }
 .funnel-chart { position: absolute; inset: 0; display: block; width: 100%; height: 100%; overflow: visible; }
 .chart-grid { fill: none; stroke: #ffffff0a; stroke-width: 1; }
 .chart-axis { fill: none; stroke: #8a94a24d; stroke-width: 1; }
@@ -135,10 +136,29 @@ input:focus-visible, select:focus-visible, .chart-month:focus-visible { outline:
 .chart-month-labels { text-anchor: end; }
 .chart-tick-labels { text-anchor: middle; }
 .chart-axis-title { fill: #ecf0f5; font-size: 7px; font-weight: 700; }
-.chart-tooltip { opacity: 0; pointer-events: none; filter: drop-shadow(0 2px 2px #0008); }
-.chart-tooltip path { fill: #656f7e; stroke: #d5dbe3; stroke-width: 1; }
-.chart-tooltip text { fill: white; font-size: 9px; }
-.chart-month--third:hover ~ .chart-tooltip, .chart-month--third:focus-visible ~ .chart-tooltip { opacity: 1; }
+.chart-hit-area { fill: transparent; pointer-events: all; }
+.chart-month { cursor: help; }
+.chart-month:hover .bar-prospects, .chart-month:focus-visible .bar-prospects { fill: #788699; }
+.chart-tooltip {
+  position: absolute;
+  z-index: 1;
+  left: 32%;
+  max-width: 68%;
+  transform: translateY(-50%);
+  padding: 8px 10px;
+  border: 1px solid #d5dbe3;
+  border-radius: 4px;
+  background: #656f7e;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  box-shadow: 0 2px 5px #0008;
+}
+.chart-status { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center; font-size: 14px; line-height: 1.5; }
+.funnel-chart[hidden], .chart-status[hidden], .chart-tooltip[hidden] { display: none; }
 
 .forecast-summary { display: grid; gap: 11px; }
 .summary-card {
