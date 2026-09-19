@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="customers.js" defer></script>
     <script src="leads.js" defer></script>
+    <script src="prospects.js" defer></script>
   </head>
   <body>
     <main class="calculator">
@@ -70,7 +71,6 @@
             <label for="lead-response-rate">Lead Response Rate</label>
             <input type="range" id="lead-response-rate" name="leadResponseRate" min="0" max="100" step="1" value="40" aria-describedby="lead-response-unit">
             <span id="lead-response-unit" class="visually-hidden">Percent</span>
-            <!-- JavaScript will keep this output in sync with the slider. -->
             <output id="lead-response-value" for="lead-response-rate">40.00%</output>
           </div>
 
@@ -85,67 +85,11 @@
 
       <section class="campaign-results" aria-labelledby="results-heading">
         <h2 id="results-heading" class="visually-hidden">Campaign forecast</h2>
-        <!-- Initial sample values; JavaScript will calculate the forecast. -->
-        <p class="visually-hidden">Sample campaign forecast</p>
+        <p id="calculator-status" class="visually-hidden" role="status" aria-atomic="true"></p>
 
         <figure class="campaign-chart" aria-labelledby="chart-caption">
-          <!-- Static reference data; the JavaScript stage will update the chart. -->
           <div id="campaign-chart" class="campaign-chart__plot">
-            <svg class="funnel-chart" viewBox="0 0 398 306" role="img" aria-labelledby="chart-title chart-description">
-              <title id="chart-title">Sales funnel by month</title>
-              <desc id="chart-description">Sample cumulative forecast for six months, ending at 125 prospects, 25 leads, and 10 customers. Dark bars represent prospects, medium bars leads, and light bars customers.</desc>
-              <g class="chart-grid">
-                <path d="M20 14V278 M78 14V278 M136 14V278 M194 14V278 M252 14V278 M310 14V278 M368 14V278"/>
-                <path d="M20 39H384 M20 82H384 M20 125H384 M20 168H384 M20 211H384 M20 254H384"/>
-              </g>
-              <g class="chart-month">
-                <rect class="bar-prospects" x="20" y="20" width="61" height="39"/>
-                <rect class="bar-leads" x="20" y="23" width="12" height="33"/>
-                <rect class="bar-customers" x="20" y="24" width="6" height="31"/>
-              </g>
-              <g class="chart-month">
-                <rect class="bar-prospects" x="20" y="63" width="122" height="39"/>
-                <rect class="bar-leads" x="20" y="66" width="24" height="33"/>
-                <rect class="bar-customers" x="20" y="67" width="9" height="31"/>
-              </g>
-              <g class="chart-month chart-month--third" tabindex="0" role="img" aria-label="Month 3: 63 prospects, 13 leads, 5 customers">
-                <rect class="bar-prospects" x="20" y="106" width="183" height="39"/>
-                <rect class="bar-leads" x="20" y="109" width="37" height="33"/>
-                <rect class="bar-customers" x="20" y="110" width="15" height="31"/>
-              </g>
-              <g class="chart-month">
-                <rect class="bar-prospects" x="20" y="149" width="244" height="39"/>
-                <rect class="bar-leads" x="20" y="152" width="49" height="33"/>
-                <rect class="bar-customers" x="20" y="153" width="20" height="31"/>
-              </g>
-              <g class="chart-month">
-                <rect class="bar-prospects" x="20" y="192" width="305" height="39"/>
-                <rect class="bar-leads" x="20" y="195" width="61" height="33"/>
-                <rect class="bar-customers" x="20" y="196" width="24" height="31"/>
-              </g>
-              <g class="chart-month">
-                <rect class="bar-prospects" x="20" y="235" width="366" height="39"/>
-                <rect class="bar-leads" x="20" y="238" width="73" height="33"/>
-                <rect class="bar-customers" x="20" y="239" width="29" height="31"/>
-              </g>
-              <path class="chart-axis" d="M20 14V278H386"/>
-              <g class="chart-labels chart-month-labels">
-                <text x="15" y="42">1</text><text x="15" y="85">2</text>
-                <text x="15" y="128">3</text><text x="15" y="171">4</text>
-                <text x="15" y="214">5</text><text x="15" y="257">6</text>
-              </g>
-              <g class="chart-labels chart-tick-labels">
-                <text x="20" y="292">0 people</text><text x="78" y="292">20 people</text>
-                <text x="136" y="292">40 people</text><text x="194" y="292">60 people</text>
-                <text x="252" y="292">80 people</text><text x="310" y="292">100 people</text>
-                <text x="368" y="292">120 people</text>
-              </g>
-              <text class="chart-axis-title" transform="translate(8 158) rotate(-90)">Months</text>
-              <g class="chart-tooltip" aria-hidden="true">
-                <path d="M116 100H181V151H116V132L112 126L116 120Z"/>
-                <text x="122" y="114"><tspan x="122">Month #3</tspan><tspan x="122" dy="9">Prospects: 63</tspan><tspan x="122" dy="9">Leads: 13</tspan><tspan x="122" dy="9">Customers: 5</tspan></text>
-              </g>
-            </svg>
+            <p class="chart-status">Enable JavaScript to view the campaign forecast.</p>
           </div>
           <figcaption id="chart-caption" class="visually-hidden">Sales funnel by month</figcaption>
         </figure>

@@ -8,8 +8,8 @@
     if (!Number.isFinite(value) || value < 0 || value > Number.MAX_SAFE_INTEGER) {
       throw new RangeError("These values produce a forecast too large to calculate accurately.");
     }
-    if (value === 0) return 0;
-    const tolerance = Number.EPSILON * Math.max(1, value);
+    if (Number.isInteger(value)) return value;
+    const tolerance = Math.min(Number.EPSILON * Math.max(1, value), 1e-7);
     return Math.max(1, Math.ceil(value - tolerance));
   };
 
