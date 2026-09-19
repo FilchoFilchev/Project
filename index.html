@@ -7,6 +7,7 @@
     <title>LeadPredictor &mdash; Campaign Calculator</title>
     <link rel="stylesheet" href="style.css">
     <script src="customers.js" defer></script>
+    <script src="leads.js" defer></script>
   </head>
   <body>
     <main class="calculator">
@@ -69,7 +70,6 @@
             <label for="lead-response-rate">Lead Response Rate</label>
             <input type="range" id="lead-response-rate" name="leadResponseRate" min="0" max="100" step="1" value="40" aria-describedby="lead-response-unit">
             <span id="lead-response-unit" class="visually-hidden">Percent</span>
-            <!-- JavaScript will keep this output in sync with the slider. -->
             <output id="lead-response-value" for="lead-response-rate">40.00%</output>
           </div>
 
@@ -159,7 +159,7 @@
 
           <section class="summary-card summary-card--leads" aria-labelledby="leads-heading">
             <h3 id="leads-heading"><svg class="summary-card__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M6 19v-3c0-5 12-5 12 0v3z"/></svg>Leads</h3>
-            <p class="summary-card__count" id="leads-count">25</p>
+            <p class="summary-card__count" id="leads-count" aria-live="polite" aria-atomic="true">25</p>
             <p class="summary-card__percentage" id="leads-percentage">20%</p>
             <meter id="leads-meter" min="0" max="100" value="20" aria-label="Leads as a percentage of total prospects">20%</meter>
           </section>
