@@ -135,10 +135,9 @@ input:focus-visible, select:focus-visible, .chart-month:focus-visible { outline:
 .chart-month-labels { text-anchor: end; }
 .chart-tick-labels { text-anchor: middle; }
 .chart-axis-title { fill: #ecf0f5; font-size: 7px; font-weight: 700; }
-.chart-tooltip { opacity: 0; pointer-events: none; filter: drop-shadow(0 2px 2px #0008); }
-.chart-tooltip path { fill: #656f7e; stroke: #d5dbe3; stroke-width: 1; }
-.chart-tooltip text { fill: white; font-size: 9px; }
-.chart-month--third:hover ~ .chart-tooltip, .chart-month--third:focus-visible ~ .chart-tooltip { opacity: 1; }
+.chart-status { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center; font-size: 14px; line-height: 1.5; }
+input[aria-invalid="true"] { border-color: #f0a8a8; outline: 1px solid #f0a8a8; }
+.summary-card__count { overflow-wrap: anywhere; }
 
 .forecast-summary { display: grid; gap: 11px; }
 .summary-card {
@@ -164,7 +163,7 @@ meter::-moz-meter-bar { border-radius: 8px; background: #fff; }
 .response-rates { grid-area: 3 / 2; display: grid; gap: 19px; padding: 19px 18px 22px; }
 .response-rates label { margin-bottom: 10px; }
 input[type="range"] { display: block; appearance: none; width: calc(100% - 10px); height: 10px; margin: 0 5px; border-radius: 10px; background: var(--track); cursor: pointer; }
-/* Initial reference values; JavaScript can update these custom properties. */
+/* Initial values, updated by JavaScript when the sliders move. */
 #lead-response-rate { --rate: 40%; }
 #prospect-response-rate { --rate: 20%; }
 input[type="range"] { background: linear-gradient(to right, #b8c2d0 0 var(--rate), var(--track) var(--rate) 100%); }
