@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate prospects, leads, and customers for your campaign with LeadPredictor.">
+    <title>LeadPredictor &mdash; Campaign Calculator</title>
+  </head>
+  <body>
+    <main class="calculator">
+      <header class="calculator__header">
+        <h1>LeadPredictor</h1>
+        <p>Plan your campaign and estimate your sales funnel.</p>
+      </header>
+
+      <form id="campaign-form" class="calculator__form">
+        <section class="campaign-settings" aria-labelledby="settings-heading">
+          <h2 id="settings-heading">Campaign settings</h2>
+
+          <div class="form-field">
+            <label for="language">Language</label>
+            <select id="language" name="language">
+              <option value="en" selected>English</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="currency">Currency</label>
+            <select id="currency" name="currency">
+              <option value="USD" selected>$ US Dollar</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="campaign-start">Campaign Start</label>
+            <input type="date" id="campaign-start" name="campaignStart" value="2026-05-08" required>
+          </div>
+
+          <div class="form-field">
+            <label for="campaign-end">Campaign End</label>
+            <input type="date" id="campaign-end" name="campaignEnd" value="2026-11-04" required>
+          </div>
+
+          <div class="form-field">
+            <label for="total-revenue">Total Revenue (USD)</label>
+            <input type="number" id="total-revenue" name="totalRevenue" min="0" step="0.01" value="10000" required>
+          </div>
+
+          <div class="form-field">
+            <label for="average-order-value">Avg. Order Value (USD)</label>
+            <input type="number" id="average-order-value" name="averageOrderValue" min="0.01" step="0.01" value="1000" required>
+          </div>
+        </section>
+
+        <section class="response-rates" aria-labelledby="rates-heading">
+          <h2 id="rates-heading">Response rates</h2>
+
+          <div class="form-field">
+            <label for="lead-response-rate">Lead Response Rate</label>
+            <input type="range" id="lead-response-rate" name="leadResponseRate" min="0" max="100" step="1" value="40" aria-describedby="lead-response-unit">
+            <span id="lead-response-unit">Percent</span>
+            <!-- JavaScript will keep this output in sync with the slider. -->
+            <output id="lead-response-value" for="lead-response-rate">40.00%</output>
+          </div>
+
+          <div class="form-field">
+            <label for="prospect-response-rate">Prospect Response Rate</label>
+            <input type="range" id="prospect-response-rate" name="prospectResponseRate" min="0" max="100" step="1" value="20" aria-describedby="prospect-response-unit">
+            <span id="prospect-response-unit">Percent</span>
+            <output id="prospect-response-value" for="prospect-response-rate">20.00%</output>
+          </div>
+        </section>
+      </form>
+
+      <section class="campaign-results" aria-labelledby="results-heading">
+        <h2 id="results-heading">Campaign forecast</h2>
+        <!-- Initial sample values; JavaScript will calculate the forecast. -->
+        <p>Sample campaign forecast</p>
+
+        <figure class="campaign-chart" aria-labelledby="chart-caption">
+          <!-- The monthly bar chart will be rendered here in a later stage. -->
+          <div id="campaign-chart" class="campaign-chart__plot">
+            <p>Monthly prospects, leads, and customers chart coming soon.</p>
+          </div>
+          <figcaption id="chart-caption">Sales funnel by month</figcaption>
+        </figure>
+
+        <div class="forecast-summary">
+          <section class="summary-card summary-card--prospects" aria-labelledby="prospects-heading">
+            <h3 id="prospects-heading">Prospects</h3>
+            <p class="summary-card__count" id="prospects-count">125</p>
+            <p class="summary-card__percentage" id="prospects-percentage">100%</p>
+            <meter id="prospects-meter" min="0" max="100" value="100" aria-label="Prospects as a percentage of total prospects">100%</meter>
+          </section>
+
+          <section class="summary-card summary-card--leads" aria-labelledby="leads-heading">
+            <h3 id="leads-heading">Leads</h3>
+            <p class="summary-card__count" id="leads-count">25</p>
+            <p class="summary-card__percentage" id="leads-percentage">20%</p>
+            <meter id="leads-meter" min="0" max="100" value="20" aria-label="Leads as a percentage of total prospects">20%</meter>
+          </section>
+
+          <section class="summary-card summary-card--customers" aria-labelledby="customers-heading">
+            <h3 id="customers-heading">Customers</h3>
+            <p class="summary-card__count" id="customers-count">10</p>
+            <p class="summary-card__percentage" id="customers-percentage">8%</p>
+            <meter id="customers-meter" min="0" max="100" value="8" aria-label="Customers as a percentage of total prospects">8%</meter>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
